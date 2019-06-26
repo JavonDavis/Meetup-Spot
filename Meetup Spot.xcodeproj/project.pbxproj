@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1AACC922C30D2B00F24E31 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACC822C30D2B00F24E31 /* LocationSearchViewController.swift */; };
+		8A1AACCD22C31C2C00F24E31 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */; };
+		8A1AACD022C31F3500F24E31 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACCF22C31F3500F24E31 /* UITableView+Utils.swift */; };
+		8A1AACD622C32A0300F24E31 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACD522C32A0300F24E31 /* SearchResultTableViewCell.swift */; };
 		8A1B6EBD22C1D7C10090537A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B6EBC22C1D7C10090537A /* AppDelegate.swift */; };
-		8A1B6EBF22C1D7C10090537A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B6EBE22C1D7C10090537A /* ViewController.swift */; };
+		8A1B6EBF22C1D7C10090537A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B6EBE22C1D7C10090537A /* HomeViewController.swift */; };
 		8A1B6EC222C1D7C10090537A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B6EC022C1D7C10090537A /* Main.storyboard */; };
 		8A1B6EC422C1D7C20090537A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B6EC322C1D7C20090537A /* Assets.xcassets */; };
 		8A1B6EC722C1D7C20090537A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B6EC522C1D7C20090537A /* LaunchScreen.storyboard */; };
@@ -27,9 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1AACC822C30D2B00F24E31 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		8A1AACCF22C31F3500F24E31 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		8A1AACD522C32A0300F24E31 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		8A1B6EB922C1D7C10090537A /* Meetup Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meetup Spot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1B6EBC22C1D7C10090537A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A1B6EBE22C1D7C10090537A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8A1B6EBE22C1D7C10090537A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8A1B6EC122C1D7C10090537A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A1B6EC322C1D7C20090537A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A1B6EC622C1D7C20090537A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +66,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1AACC522C3089D00F24E31 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				8A1B6EBE22C1D7C10090537A /* HomeViewController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		8A1AACC622C308B200F24E31 /* location search */ = {
+			isa = PBXGroup;
+			children = (
+				8A1B6EDC22C1D88B0090537A /* DataManager.swift */,
+				8A1AACC822C30D2B00F24E31 /* LocationSearchViewController.swift */,
+				8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */,
+				8A1AACD522C32A0300F24E31 /* SearchResultTableViewCell.swift */,
+			);
+			path = "location search";
+			sourceTree = "<group>";
+		};
+		8A1AACCA22C30D3800F24E31 /* User Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				8A1B6EC022C1D7C10090537A /* Main.storyboard */,
+				8A1B6EC522C1D7C20090537A /* LaunchScreen.storyboard */,
+			);
+			path = "User Interfaces";
+			sourceTree = "<group>";
+		};
+		8A1AACCB22C30DB500F24E31 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				8A1B6EBC22C1D7C10090537A /* AppDelegate.swift */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		8A1AACCE22C31EF000F24E31 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A1AACCF22C31F3500F24E31 /* UITableView+Utils.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		8A1B6EB022C1D7C10090537A = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +131,13 @@
 		8A1B6EBB22C1D7C10090537A /* Meetup Spot */ = {
 			isa = PBXGroup;
 			children = (
-				8A1B6EBC22C1D7C10090537A /* AppDelegate.swift */,
-				8A1B6EBE22C1D7C10090537A /* ViewController.swift */,
-				8A1B6EC022C1D7C10090537A /* Main.storyboard */,
+				8A1AACCE22C31EF000F24E31 /* extensions */,
+				8A1AACCB22C30DB500F24E31 /* config */,
+				8A1AACCA22C30D3800F24E31 /* User Interfaces */,
+				8A1AACC622C308B200F24E31 /* location search */,
+				8A1AACC522C3089D00F24E31 /* home */,
 				8A1B6EC322C1D7C20090537A /* Assets.xcassets */,
-				8A1B6EC522C1D7C20090537A /* LaunchScreen.storyboard */,
 				8A1B6EC822C1D7C20090537A /* Info.plist */,
-				8A1B6EDC22C1D88B0090537A /* DataManager.swift */,
 			);
 			path = "Meetup Spot";
 			sourceTree = "<group>";
@@ -200,9 +252,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A1B6EBF22C1D7C10090537A /* ViewController.swift in Sources */,
+				8A1AACD622C32A0300F24E31 /* SearchResultTableViewCell.swift in Sources */,
+				8A1B6EBF22C1D7C10090537A /* HomeViewController.swift in Sources */,
 				8A1B6EDD22C1D88B0090537A /* DataManager.swift in Sources */,
 				8A1B6EBD22C1D7C10090537A /* AppDelegate.swift in Sources */,
+				8A1AACCD22C31C2C00F24E31 /* SelfSizedTableView.swift in Sources */,
+				8A1AACC922C30D2B00F24E31 /* LocationSearchViewController.swift in Sources */,
+				8A1AACD022C31F3500F24E31 /* UITableView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

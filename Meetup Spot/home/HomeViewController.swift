@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        let dataManager = DataManager.shared
-        dataManager.getCitiesMatching(name: "san")
     }
 
-
+    @IBAction func goButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "showMainController", sender: nil)
+    }
+    
 }
 
