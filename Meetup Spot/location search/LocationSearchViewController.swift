@@ -16,6 +16,7 @@ class LocationSearchViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     let dataManager = DataManager.shared
+    var cities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,13 @@ class LocationSearchViewController: UIViewController {
         searchResultsTableView.maxHeight = 372
         locationsTableView.setEmptyView(title: "No Locations", message: "You haven't entered any locations as yet")
         
-        self.searchResultsTableView.delegate = self
-        self.searchResultsTableView.dataSource = self
+        searchResultsTableView.delegate = self
+        searchResultsTableView.dataSource = self
         
-        self.locationsTableView.delegate = self
-        self.locationsTableView.dataSource = self
+        locationsTableView.delegate = self
+        locationsTableView.dataSource = self
+        
+        newLocationTextField.addTarget(self, action: #selector(locationSearchFieldChanged(_:)), for: .editingChanged)
     }
     
     @IBAction func onSubmitClick(_ sender: Any) {
@@ -49,7 +52,7 @@ extension LocationSearchViewController: UITableViewDataSource {
         switch tableView {
         case searchResultsTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as! SearchResultTableViewCell
-            cell.label.text = "San Franciso, California"
+            cell.label.text = cities[indexPath.row].name
             return cell
         default:
             // TODO raise error?
@@ -71,20 +74,38 @@ extension LocationSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var rows: Int
         switch tableView {
         case searchResultsTableView:
-            rows = 0
+            return cities.count
         default:
             // TODO raise error?
-            rows = 0
+            return 0
         }
-        return rows
     }
 }
 
 extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// MARK: - Search Text field functions
+
+
+extension LocationSearchViewController {
+    @objc func locationSearchFieldChanged(_ textField: UITextField) {
+        guard let searchText = textField.text, !searchText.isEmpty else {
+            cities = []
+            searchResultsTableView.reloadData()
+            return
+        }
+        dataManager.getCitiesMatching(name: searchText) { cities in
+            self.cities = cities
+            DispatchQueue.main.async {
+                self.searchResultsTableView.reloadData()
+            }
+        }
+        self.searchResultsTableView.reloadData()
     }
 }

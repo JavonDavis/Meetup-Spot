@@ -11,7 +11,7 @@ import Foundation
 class DataManager {
     
     // Teleport base URL
-    let baseUrl = "https://api.teleport.org/api/"
+    private let baseUrl = "https://api.teleport.org/api/"
     public static let shared = DataManager()
     
     let session = URLSession.shared
@@ -26,7 +26,7 @@ class DataManager {
         return cities
     }
     
-    func getCitiesMatching(name: String) {
+    func getCitiesMatching(name: String, completion: @escaping ([City]) -> Void) {
         let searchURL = baseUrl + "cities/"
         var components = URLComponents(string: searchURL)!
         components.queryItems = ["search": name].map { (key, value) in
@@ -42,6 +42,7 @@ class DataManager {
                 let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
                 let cities = self.searchResultToCities(citySearchResult: searchResult)
                 print("Found \(cities.count) cities")
+                completion(cities)
                 // TODO: - Call closure with City data
             } catch {
                 print("Could not create search result:\(error.localizedDescription)")
