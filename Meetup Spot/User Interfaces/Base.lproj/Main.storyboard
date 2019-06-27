@@ -70,6 +70,32 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d5L-eP-rtf">
                                 <rect key="frame" x="20" y="198" width="374" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationChoiceCell" rowHeight="90" id="wur-k2-K38" customClass="LocationChoiceTableViewCell" customModule="Meetup_Spot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wur-k2-K38" id="Nja-DQ-CsZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ns-DS-Gz1">
+                                                    <rect key="frame" x="20" y="31.5" width="334" height="27"/>
+                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1Ns-DS-Gz1" firstAttribute="centerY" secondItem="Nja-DQ-CsZ" secondAttribute="centerY" id="dbB-zK-m2D"/>
+                                                <constraint firstItem="1Ns-DS-Gz1" firstAttribute="leading" secondItem="Nja-DQ-CsZ" secondAttribute="leading" constant="20" id="gou-Ew-ECb"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Ns-DS-Gz1" secondAttribute="trailing" constant="20" id="xVp-At-llF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityNameLabel" destination="1Ns-DS-Gz1" id="LzB-ic-5Dp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-6v-rFY">
                                 <rect key="frame" x="20" y="163" width="95" height="27"/>
@@ -112,7 +138,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="label" destination="43p-Zg-hT0" id="ECG-gL-dmh"/>
+                                            <outlet property="cityNameLabel" destination="43p-Zg-hT0" id="ECG-gL-dmh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

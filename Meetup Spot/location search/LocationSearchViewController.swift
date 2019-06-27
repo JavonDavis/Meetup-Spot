@@ -17,6 +17,8 @@ class LocationSearchViewController: UIViewController {
     
     let dataManager = DataManager.shared
     var cities = [City]()
+    var chosenCities = [City]()
+    var cityTracker: Set<City> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class LocationSearchViewController: UIViewController {
     }
     
     @IBAction func onSubmitClick(_ sender: Any) {
+        dataManager.getFlockData(for: chosenCities)
     }
 
     /*
@@ -52,7 +55,11 @@ extension LocationSearchViewController: UITableViewDataSource {
         switch tableView {
         case searchResultsTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as! SearchResultTableViewCell
-            cell.label.text = cities[indexPath.row].name
+            cell.cityNameLabel.text = cities[indexPath.row].name
+            return cell
+        case locationsTableView:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "locationChoiceCell", for: indexPath) as! LocationChoiceTableViewCell
+            cell.cityNameLabel.text = chosenCities[indexPath.row].name
             return cell
         default:
             // TODO raise error?
@@ -62,24 +69,40 @@ extension LocationSearchViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        var sections: Int
         switch tableView {
         case searchResultsTableView:
-            sections = 1
+            return 1
+        case locationsTableView:
+            return 1
         default:
             // TODO raise error?
-            sections = 0
+            return 0
         }
-        return sections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case searchResultsTableView:
             return cities.count
+        case locationsTableView:
+            return chosenCities.count
         default:
             // TODO raise error?
             return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch tableView {
+        case locationsTableView:
+            let city = self.chosenCities[indexPath.row]
+            if editingStyle == .delete {
+                cityTracker.remove(city)
+                chosenCities.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        default:
+            print("Unhandlede TableView: \(tableView)")
         }
     }
 }
@@ -87,6 +110,27 @@ extension LocationSearchViewController: UITableViewDataSource {
 extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch tableView {
+        case searchResultsTableView:
+            // Get the city
+            let city = cities[indexPath.row]
+            
+            // Clear and reload the search field
+            newLocationTextField.text = ""
+            locationSearchFieldChanged(newLocationTextField)
+            
+            // If the city isn't already chosen
+            if !cityTracker.contains(city) {
+                cityTracker.insert(city)
+                chosenCities.append(city)
+                
+                locationsTableView.restore()
+                locationsTableView.reloadData()
+            }
+        default:
+            print("Unknown TableView \(tableView)")
+        }
     }
 }
 

@@ -11,6 +11,7 @@
 		8A1AACCD22C31C2C00F24E31 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */; };
 		8A1AACD022C31F3500F24E31 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACCF22C31F3500F24E31 /* UITableView+Utils.swift */; };
 		8A1AACD622C32A0300F24E31 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACD522C32A0300F24E31 /* SearchResultTableViewCell.swift */; };
+		8A1AACD822C4453A00F24E31 /* LocationChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AACD722C4453A00F24E31 /* LocationChoiceTableViewCell.swift */; };
 		8A1B6EBD22C1D7C10090537A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B6EBC22C1D7C10090537A /* AppDelegate.swift */; };
 		8A1B6EBF22C1D7C10090537A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B6EBE22C1D7C10090537A /* HomeViewController.swift */; };
 		8A1B6EC222C1D7C10090537A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B6EC022C1D7C10090537A /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
 		8A1AACCF22C31F3500F24E31 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		8A1AACD522C32A0300F24E31 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		8A1AACD722C4453A00F24E31 /* LocationChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		8A1B6EB922C1D7C10090537A /* Meetup Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meetup Spot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1B6EBC22C1D7C10090537A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A1B6EBE22C1D7C10090537A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -79,8 +81,8 @@
 			children = (
 				8A1B6EDC22C1D88B0090537A /* DataManager.swift */,
 				8A1AACC822C30D2B00F24E31 /* LocationSearchViewController.swift */,
-				8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */,
 				8A1AACD522C32A0300F24E31 /* SearchResultTableViewCell.swift */,
+				8A1AACD722C4453A00F24E31 /* LocationChoiceTableViewCell.swift */,
 			);
 			path = "location search";
 			sourceTree = "<group>";
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				8A1AACCF22C31F3500F24E31 /* UITableView+Utils.swift */,
+				8A1AACCC22C31C2C00F24E31 /* SelfSizedTableView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A1AACD622C32A0300F24E31 /* SearchResultTableViewCell.swift in Sources */,
+				8A1AACD822C4453A00F24E31 /* LocationChoiceTableViewCell.swift in Sources */,
 				8A1B6EBF22C1D7C10090537A /* HomeViewController.swift in Sources */,
 				8A1B6EDD22C1D88B0090537A /* DataManager.swift in Sources */,
 				8A1B6EBD22C1D7C10090537A /* AppDelegate.swift in Sources */,
